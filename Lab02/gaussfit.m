@@ -8,7 +8,7 @@
 %   mu - D-by-1 vector indicating the center of the Gaussian distribution.
 %   sigma - Scalar indicating the standard deviation of the Gaussian distribution.
 
-function [mu, sigma] = gaussfit(X)
+function [mu, variance] = gaussfit(X)
     [D, N] = size(X);
     mu = (1/N) * sum(X, 2);
     
