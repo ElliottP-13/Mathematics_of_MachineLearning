@@ -9,5 +9,9 @@
 %   sigma - Scalar indicating the standard deviation of the Gaussian distribution.
 
 function [mu, sigma] = gaussfit(X)
-
+    [D, N] = size(X);
+    mu = (1/N) * sum(X, 2);
+    
+    variance = (1/(D * N)) * sum(sum((X - mu).^2), 2);  % compute variance
+    sigma = sqrt(variance);
 end
