@@ -12,9 +12,9 @@ clc; clear;
 % We see that the output matches what we expect. We expected to find that
 % mu = [1 2 3 4 5] and sigma = 3. We get pretty close :)
 
-mu_s = [1 2 3 4 5];
+mu_s = [1 2 3 4 5 6 7];
 sigma_s = 3 * eye(size(mu_s, 2));
-n = 10000;
+n = 1000000;
 X = mvnrnd(mu_s,sigma_s,n)';  % n random samples from multivariate gaussian
 [mu, sigma] = gaussfit(X)
 
@@ -41,11 +41,15 @@ disp("Dept with highest mean = " + max_mu + " (" + deptnames(deptnumbers==max_mu
 fprintf(1, '\n'); % empty line
 
 %% 1.5
-% Now we find the departments that have the highest and lowest variance
+% Now we find the departments that have the highest and lowest variance.
+% This number is very big, but that is because its the variance, the
+% standard deviation is much more reasonable ~42K. Also the min variance of 0
+% was a little bit suspicious, but in fact there is only one employee in
+% that department, so that makes sense.
 [~, min_s] = min(sigma);
 [~, max_s] = max(sigma);
-disp("Dept with lowest variance = " + min_s + " (" + deptnames(deptnumbers==min_s) + "), sigma = $" + sigma(min_s));
-disp("Dept with highest variance = " + max_s + " (" + deptnames(deptnumbers==max_s) + "), sigma = $" + sigma(max_s));
+disp("Dept with lowest variance = " + min_s + " (" + deptnames(deptnumbers==min_s) + "), sigma^2 = $" + sigma(min_s));
+disp("Dept with highest variance = " + max_s + " (" + deptnames(deptnumbers==max_s) + "), sigma^2 = $" + sigma(max_s));
 
 %% Part 2
 % In this part we are supposed to complete the kernel density estimator
