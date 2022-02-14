@@ -218,3 +218,16 @@ for m = [1, 2, 5, 10, 25]
     imgrid(display_data, mnist.dims, [5, 5]);
     title("M = " + m + " reconstructed number");
 end
+
+%% PrinComp.m
+%
+% <include>princomp.m</include>
+%
+%% imcloud.m
+%
+% <include>imcloud.m</include>
+%
+%% imgrid.m
+%
+% <include>imgrid.m</include>
+%
