@@ -19,5 +19,13 @@
 %    functions which is the maximum likelihood learned model.
 
 function [w] = lsefit(x, t, params, func, mu)
-
+    % wmle = inv(Sig'*Sig + 1/mu^2 I) Sig' t
+    [N, ~] = size(x);
+    [~, M] = size(params);
+    
+    % Compute Sigma
+    Sig = eval_basis(params, func, x);
+    
+    Z = Sig' * Sig + 1/mu^2 * eye(M);
+    w = Z \ (Sig' * t);
 end
