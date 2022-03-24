@@ -9,5 +9,15 @@
 %    observations in X.
 
 function [C] = boosteval(X, params, alpha)
+   % who cares about memory, lets just store NxM matrix of all our predictions! lol
+   [D, N] = size(X);
+   [p, M] = size(params);
    
+   preds = zeros(N, M);
+   for k = 1:M
+      preds(:,k) = weakeval(X, params(:,k));; 
+   end
+   
+   scaled = preds * alpha;  % scales predictions by alpha, and sums them (dot product)
+   C = 2 * (scaled > 0) - 1;
 end
