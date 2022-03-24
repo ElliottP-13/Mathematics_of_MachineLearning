@@ -102,3 +102,28 @@ title('Misclassification Rate vs M');
 ylabel('Misclassification rate');
 xlabel('M');
 
+%% boostlearn.m
+%
+% <include>boostlearn.m</include>
+%
+%% boosteval.m
+%
+% <include>boosteval.m</include>
+%
+%% plot_preds.m
+%
+% <include>plot_preds.m</include>
+%
+%% weaklearn.m
+%
+% <include>weaklearn.m</include>
+%
+%% weakeval.m
+%
+% <include>weakeval.m</include>
+%
+%% make_cloud.m
+%
+% <include>make_cloud.m</include>
+%
+

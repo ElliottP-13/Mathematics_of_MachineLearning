@@ -119,9 +119,26 @@ nexttile;
 imshow(I);
 
 
-
-
-
+%% km.m
+%
+% <include>km.m</include>
+%
+%% pointclouds.m
+%
+% <include>pointclouds.m</include>
+%
+%% pointrings.m
+%
+% <include>pointrings.m</include>
+%
+%% im2rgb.m
+%
+% <include>im2rgb.m</include>
+%
+%% rgb2im.m
+%
+% <include>rgb2im.m</include>
+%
 
 
 
