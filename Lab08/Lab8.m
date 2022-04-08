@@ -149,11 +149,10 @@ title('Learned theta');
 % How does this compare against SVM (train/test SVM on the same data partitions used for the network).
 % Page 4
 % **************************************************************************************
-% Interestingly, the neural net performs pretty bad. I don't know why. The
-% image might just be hard to 'understand'. It does not learn the relevant
-% parts of the image like the SVM does. This is probably a problem with the
-% network topology. Perhaps making it bigger will help? Or maybe it is too
-% big already and is stuck in local optima.
+% Initially, the neural net performed pretty bad. I think it was too small.
+% So I increased the number of nodes in the first layer and also increased
+% the depth of the network. Now it performs pretty well. Not that much
+% better than SVM so it is maybe not worth the complexity. 
 
 clear;
 load('cbcl1.mat')
@@ -200,3 +199,23 @@ NETpreds = net.classify(XTest);
 netAccuracy = sum(NETpreds == categorical(YTest)) / length(YTest)
 svmAccuracy = sum(SVMpreds' == (YTest > 0)) / length(YTest)
 
+%% softsvm.m
+%
+% <include>softsvm.m</include>
+%
+%% MLP Classification.m
+%
+% <include>MLP_classification.m</include>
+%
+%% MLP Regression.m
+%
+% <include>MLP_regression.m</include>
+%
+%% swissroll.m
+%
+% <include>swissroll.m</include>
+%
+%% plotroll.m
+%
+% <include>plotroll.m</include>
+%
